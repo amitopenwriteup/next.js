@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "ai": {
+    "enabled": true,
+    "groupRelatedUpdates": true,
+    "conflictDetection": "semantic"
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["ai-reviewed", "needs-human-approval"],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security"]
+  }
+}
